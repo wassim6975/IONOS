@@ -1,8 +1,9 @@
-# main.tf
+# terraform-template-nginx.tf
+# This is a test - Wassim Ben Jabria 
 
 provider "ionoscloud" {
-  username = "xxx"
-  password = "xxx"
+  username = "xxx" # to be completed 
+  password = "xxx" # to be completed 
 }
 
 resource "ionoscloud_datacenter" "example" {
@@ -70,7 +71,7 @@ resource "ionoscloud_k8s_deployment" "nginx_deployment" {
       metadata {
         labels = {
           app     = "nginx"
-          updated = "true"  # Add a label if needed
+          updated = "true"  # to update
         }
       }
 
