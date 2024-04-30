@@ -47,7 +47,7 @@ This Terraform template enables the deployment of a Kubernetes cluster on the IO
   ```
 - Copy your local index.html and change the one in the pod:
   ```bash
-  cp index.html nginx-deployment-7c5ddbdf54-46v5g:/usr/share/nginx/html/index.html
+  kubectl cp index.html {your_pod_name}:/usr/share/nginx/html/index.html
   ```
 - Change the index.html:
   ```bash
