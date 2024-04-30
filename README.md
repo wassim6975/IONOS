@@ -21,11 +21,11 @@ This Terraform template enables the deployment of a Kubernetes cluster on the IO
 
 1. Clone this repository to your local machine.
 2. Set your credentials:
-   - Replace the placeholder values in the `main.tf` file with your IONOS cloud credentials.
+   - Replace the placeholder values in the `terraform-template-nginx.tf` file with your IONOS cloud credentials.
    - Update the username and password in the provider block.
 
 3. Deploy the Kubernetes cluster:
-   - Navigate to the directory containing the `main.tf` file.
+   - Navigate to the directory containing the `terraform-template-nginx.tf` file.
    - Run `terraform init` to initialize the Terraform configuration.
    - Run `terraform plan` to check the Terraform plan.
    - Run `terraform apply` to create the resources.
