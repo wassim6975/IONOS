@@ -2,8 +2,8 @@
 # This is a test - Wassim Ben Jabria 
 
 provider "ionoscloud" {
-  username = "wascotsaitama@gmail.com"
-  password = "Ntmionos75016!"
+  username = "your_username"
+  password = "your_password!"
 }
 
 terraform {

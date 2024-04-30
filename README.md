@@ -34,6 +34,7 @@ provider "ionoscloud" {
 3. Deploy the Kubernetes cluster:
    - Navigate to the directory containing the `main.tf` file.
    - Run `terraform init` to initialize the Terraform configuration.
+   - Run `terraform plan` to check the Terraform changes
    - Run `terraform apply` to create the resources.
 
 ### Verify Deployment:
@@ -57,3 +58,24 @@ provider "ionoscloud" {
 
 Wassim Ben Jabria
 ```
+
+
+# Command to get inside the pod 
+kubectl exec -it <nginx-pod-name> -- /bin/bash
+
+# Repository of the index.html
+/usr/share/nginx/html
+
+# Copy your local index.html and change the one in the pod 
+cp index.html nginx-deployment-7c5ddbdf54-46v5g:/usr/share/nginx/html/index.html
+
+# Change the index.html 
+echo "<html><body><h1>Hello, world! It's Wassim Ben Jabria</h1></body></html>" > index.html
+
+# Command to map your pod port to your local machine port 
+kubectl port-forward service/nginx-service 6556:80
+
+# Useful command to deply your terraform template
+terraform init 
+terraform plan
+terraform apply 
