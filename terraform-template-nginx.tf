@@ -32,7 +32,7 @@ resource "ionoscloud_k8s_node_pool" "example" {
   datacenter_id       = ionoscloud_datacenter.example.id
   k8s_cluster_id      = ionoscloud_k8s_cluster.example.id
   name                = "TestNodePool"
-  cpu_family          = "AMD_EPYC"
+  cpu_family          = "INTEL_XEON"
   storage_type        = "SSD"
   node_count          = 2
   cores_count         = 4
