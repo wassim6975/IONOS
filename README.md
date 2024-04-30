@@ -23,18 +23,11 @@ This Terraform template enables the deployment of a Kubernetes cluster on the IO
 2. Set your credentials:
    - Replace the placeholder values in the `main.tf` file with your IONOS cloud credentials.
    - Update the username and password in the provider block.
-   
-```hcl
-provider "ionoscloud" {
-  username = "your_username"
-  password = "your_password"
-}
-```
 
 3. Deploy the Kubernetes cluster:
    - Navigate to the directory containing the `main.tf` file.
    - Run `terraform init` to initialize the Terraform configuration.
-   - Run `terraform plan` to check the Terraform changes
+   - Run `terraform plan` to check the Terraform plan.
    - Run `terraform apply` to create the resources.
 
 ### Verify Deployment:
@@ -44,9 +37,40 @@ provider "ionoscloud" {
 ### Access Kubernetes Cluster:
 
 - Use `kubectl` commands to interact with your Kubernetes cluster.
-- For example, to get the nodes in the cluster:
+- To get inside the Nginx pod:
   ```bash
-  kubectl get nodes
+  kubectl exec -it <nginx-pod-name> -- /bin/bash
+  ```
+- Repository of the index.html:
+  ```bash
+  /usr/share/nginx/html
+  ```
+- Copy your local index.html and change the one in the pod:
+  ```bash
+  cp index.html nginx-deployment-7c5ddbdf54-46v5g:/usr/share/nginx/html/index.html
+  ```
+- Change the index.html:
+  ```bash
+  echo "<html><body><h1>Hello, world! It's Wassim Ben Jabria</h1></body></html>" > index.html
+  ```
+- Command to map your pod port to your local machine port:
+  ```bash
+  kubectl port-forward service/nginx-service 6556:80
+  ```
+
+### Useful Commands for Terraform:
+
+- Initialize Terraform:
+  ```bash
+  terraform init
+  ```
+- Plan Terraform changes:
+  ```bash
+  terraform plan
+  ```
+- Apply Terraform changes:
+  ```bash
+  terraform apply
   ```
 
 ### Credentials
